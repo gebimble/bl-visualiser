@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "bl-visualiser"
+version = "0.1.0"
+description = ""
+authors = ["Joe Beaver <joseph.beaver@gmail.com>"]
+readme = "README.md"
+packages = [{include = "bl_visualiser"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+polars = "^0.18.15"
+numpy = "^1.25.2"
+
+
+[tool.poetry.group.dev.dependencies]
+streamlit = "^1.25.0"
+black = "^23.7.0"
+ruff = "^0.0.284"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
