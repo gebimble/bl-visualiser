@@ -32,4 +32,4 @@ def bin_scores(array: np.ndarray) -> np.ndarray:
     for sc, st, ed in zip(scores, boundaries[:-1], boundaries[1:]):
         new_array[np.logical_and(st > array, array > ed)] = sc
 
-    return new_array.astype(int)
+    return new_array.astype('uint8')
