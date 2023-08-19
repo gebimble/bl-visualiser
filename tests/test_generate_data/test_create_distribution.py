@@ -1,11 +1,12 @@
 import numpy as np
-from bl_visualiser.distribution_functions import create_scores
+
+from bl_visualiser.generate_data.generate_scores import create_distribution
 
 
-class TestCreateScores:
+class TestCreateDistribution:
 
     def test_expected_behaviour(self):
-        scores = create_scores()
+        scores = create_distribution()
         assert len(scores) == 30
         assert np.allclose(min(scores), 0)
         assert np.allclose(max(scores), 10)

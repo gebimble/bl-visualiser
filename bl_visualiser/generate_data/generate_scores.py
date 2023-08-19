@@ -4,7 +4,7 @@ import numpy as np
 from sklearn.preprocessing import minmax_scale
 
 
-def create_scores() -> np.ndarray:
+def create_distribution() -> np.ndarray:
     number_of_scores = 30
     scores = minmax_scale(
         np.random.exponential(
@@ -33,3 +33,7 @@ def bin_scores(array: np.ndarray) -> np.ndarray:
         new_array[np.logical_and(st > array, array > ed)] = sc
 
     return new_array.astype('uint8')
+
+
+def create_scores() -> np.ndarray:
+    return bin_scores(create_distribution())
