@@ -1,17 +1,18 @@
 from copy import deepcopy
 import numpy as np
 
-
-def rescale(array: np.ndarray) -> np.ndarray:
-    mi, ma = array.min(), array.max()
-    return (array-mi)/(ma-mi)
+from sklearn.preprocessing import minmax_scale
 
 
 def create_scores() -> np.ndarray:
     number_of_scores = 30
-    scores = (rescale(np.random.exponential(size=number_of_scores).cumsum())*10
-              + np.random.random(number_of_scores))
-    return np.sort(scores)[::-1]
+    scores = minmax_scale(
+        np.random.exponential(
+            size=number_of_scores
+        ).cumsum() + np.random.random(number_of_scores)
+
+    )
+    return np.sort(scores)[::-1] * 10
 
 
 def bin_scores(array: np.ndarray) -> np.ndarray:
