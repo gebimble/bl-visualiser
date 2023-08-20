@@ -1,6 +1,6 @@
 import numpy as np
 
-from bl_visualiser.generate_data.generate_scores import bin_scores
+from bl_visualiser.generators.generate_scores import bin_scores
 
 
 class TestBinScores:
