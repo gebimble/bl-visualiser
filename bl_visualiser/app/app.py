@@ -30,17 +30,23 @@ def update_plot():
         )
 
     return px.scatter(
-        df.groupby('route', 'sex').mean(),
+        df.groupby('route', 'sex', 'date').mean(),
         x='route',
         y='score',
-        color='sex'
+        color='sex',
+        symbol='date'
 
     )
 
 
-routes = st.multiselect(
+routes = st.sidebar.multiselect(
     label='Select a route',
     options=df['route'].unique(),
+    on_change=update_plot,
+)
+competition = st.sidebar.multiselect(
+    label='Select a competition date',
+    options=df['date'].unique(),
     on_change=update_plot,
 )
 
